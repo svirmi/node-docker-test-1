@@ -1,3 +1,7 @@
+### The main idea - to run and test node.js applications without node.js installed at the host machine
+#### All set up with and inside docker containers
+#### The host machine is not "polluted" with anything except docker
+
 ## 1 init project
 ```bash
 docker run -it --rm -u $(id -u ${USER}):$(id -g ${USER}) -v ${PWD}:/app node:11 /bin/sh
@@ -27,5 +31,13 @@ sudo docker run -d -it -p 9000:3000 app-test-with-docker
 ```
 
 open http://0.0.0.0:9000/ in browser to see the result
+
+### After adding nodemon to container and volumes mapping , container spin-up looks like this:
+
+```bash
+sudo docker run -it -p 9000:3000 -v $(pwd):/app app-test-with-docker
+```
+
+Changing code inside current dir affected the same folder in the container
 
 
