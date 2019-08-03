@@ -27,7 +27,7 @@ docker run -it -p 9000:3000 app-test-with-docker
 ```
 or in the detached mode, run with **-d** flag
 ```bash
-sudo docker run -d -it -p 9000:3000 app-test-with-docker
+docker run -d -it -p 9000:3000 app-test-with-docker
 ```
 
 open http://0.0.0.0:9000/ in browser to see the result
@@ -35,7 +35,7 @@ open http://0.0.0.0:9000/ in browser to see the result
 ### After adding nodemon to container and volumes mapping , container spin-up looks like this:
 
 ```bash
-sudo docker run -it -p 9000:3000 -v $(pwd):/app app-test-with-docker
+docker run -it -p 9000:3000 -v $(pwd):/app app-test-with-docker
 ```
 
 Changing code inside current dir affected the same folder in the container
